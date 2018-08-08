@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
 
     Rigidbody2D _rigidbody2D;
+    public float ForceSize=1;
     // Use this for initialization
     void Start()
     {
@@ -17,8 +18,11 @@ public class Ball : MonoBehaviour {
         if (Input.GetMouseButtonUp(0))
         {
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var _direction = mousePos - transform.position;
-            _rigidbody2D.AddForce();
+            Vector2 _direction = mousePos - transform.position;
+            
+            _direction.Normalize();
+             
+            _rigidbody2D.AddForce(_direction*ForceSize,ForceMode2D.Impulse);
         }
     }
 }
