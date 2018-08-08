@@ -6,6 +6,7 @@ public class Ball : MonoBehaviour {
 
     Rigidbody2D _rigidbody2D;
     public float ForceSize=1;
+    public Transform BallShooterPos;
     // Use this for initialization
     void Start()
     {
@@ -24,5 +25,8 @@ public class Ball : MonoBehaviour {
              
             _rigidbody2D.AddForce(_direction*ForceSize,ForceMode2D.Impulse);
         }
+    }
+    public void ReSetPos() {
+        transform.position = BallShooterPos.position;
     }
 }
