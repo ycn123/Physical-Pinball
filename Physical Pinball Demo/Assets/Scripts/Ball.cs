@@ -27,9 +27,8 @@ public class Ball : MonoBehaviour {
         }
     }
     public void ReSetPos() {
-        transform.position = Resetpoint.position;
         _rigidbody2D.velocity = Vector2.zero;
         _rigidbody2D.angularVelocity = 0;
-        
+        transform.position = Resetpoint.position;       
     }
 }
