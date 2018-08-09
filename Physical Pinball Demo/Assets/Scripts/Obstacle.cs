@@ -17,7 +17,11 @@ public class Obstacle : MonoBehaviour {
 	}
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Debug.Log(collision.collider.name);
         Hp -= 1;
         TextHp.text = Hp.ToString();
+        if (Hp <= 0) {
+            Destroy(gameObject);
+        }
     }
 }

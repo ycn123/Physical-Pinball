@@ -6,7 +6,7 @@ public class Ball : MonoBehaviour {
 
     Rigidbody2D _rigidbody2D;
     public float ForceSize=1;
-    public Transform BallShooterPos;
+    public Transform Resetpoint;
     // Use this for initialization
     void Start()
     {
@@ -27,6 +27,9 @@ public class Ball : MonoBehaviour {
         }
     }
     public void ReSetPos() {
-        transform.position = BallShooterPos.position;
+        transform.position = Resetpoint.position;
+        _rigidbody2D.velocity = Vector2.zero;
+        _rigidbody2D.angularVelocity = 0;
+        
     }
 }
