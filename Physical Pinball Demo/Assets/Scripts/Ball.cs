@@ -5,30 +5,35 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
 
     Rigidbody2D _rigidbody2D;
-    public float ForceSize=1;
+    Collider2D _collider2D;
+    public PhysicsMaterial2D NoBounce;
+    public PhysicsMaterial2D Bounce;
     public Transform Resetpoint;
+
     // Use this for initialization
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _collider2D= GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
-        {
-            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 _direction = mousePos - transform.position;
+     
+         
             
-            _direction.Normalize();
-             
-            _rigidbody2D.AddForce(_direction*ForceSize,ForceMode2D.Impulse);
-        }
+        
+    
     }
     public void ReSetPos() {
         _rigidbody2D.velocity = Vector2.zero;
         _rigidbody2D.angularVelocity = 0;
-        transform.position = Resetpoint.position;       
+        transform.position = Resetpoint.position;  
+        GetComponent<Collider2D>().sharedMaterial= NoBounce;
+    }
+    public void BeforeShoot() {
+        GetComponent<Collider2D>().sharedMaterial = Bounce;
     }
 }
+

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BallManager : MonoBehaviour {
     public float ShootInterval = 0.5f;
-    public float ForceSize = 1;
+    public float ForceSize = 10;
     public Transform ShootPoint;
     // Use this for initialization
     void Start () {
@@ -22,11 +22,13 @@ public class BallManager : MonoBehaviour {
     IEnumerator ShootBalls()
     {
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 _direction = mousePos - transform.position;
+        Vector2 _direction = mousePos - ShootPoint.position;
+        
 
         _direction.Normalize();
         for (int i = 0; i < transform.childCount; i++) {
             var child = transform.GetChild(i);
+            child.GetComponent<Ball>().BeforeShoot();
             child.transform.position = ShootPoint.position;
             var rg = child.GetComponent<Rigidbody2D>();
             rg.AddForce(_direction * ForceSize, ForceMode2D.Impulse);
