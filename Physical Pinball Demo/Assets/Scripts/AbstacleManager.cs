@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AbstacleManager : MonoBehaviour {
     public GameObject[] AbstaclePrefabs;
+    public GameObject TextPrefab;
+    public Transform CanvasParent;
     public float LowestY = -3.1f;
 	// Use this for initialization
 	void Start () {
@@ -18,7 +20,13 @@ public class AbstacleManager : MonoBehaviour {
     public void AbstacleBuild() {
         var index = Random.Range(0, AbstaclePrefabs.Length);
         var prefab = AbstaclePrefabs[index];
-        var pf = Instantiate(prefab);
+        var pf = Instantiate(prefab,transform);
         pf.transform.position = new Vector2(0, LowestY);
+        var ui = TextBuild();
+        pf.GetComponent<Obstacle>().Initialize(ui);
+    }
+    GameObject TextBuild() {
+        var ui = Instantiate(TextPrefab,CanvasParent);
+        return ui;
     }
 }

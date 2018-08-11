@@ -362,6 +362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbstaclePrefabs:
   - {fileID: 1305151564556710, guid: 6b8da0e6035c5594f97ae900428539fc, type: 2}
+  TextPrefab: {fileID: 1812074487235226, guid: fa721fd8ee2f5ed46be1b0e97ce5132a, type: 2}
+  CanvasParent: {fileID: 774814419}
   LowestY: -3.1
 --- !u!1 &391336966
 GameObject:

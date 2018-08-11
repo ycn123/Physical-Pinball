@@ -7,14 +7,7 @@ public class Obstacle : MonoBehaviour {
     public int Hp = 5;
     public Text TextHp;
 	// Use this for initialization
-	void Start () {
-        TextHp.text = Hp.ToString();
-	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log(collision.collider.name);
@@ -24,5 +17,11 @@ public class Obstacle : MonoBehaviour {
             Destroy(gameObject);
             Destroy(TextHp);
         }
+    }
+    //用于障碍物的初始化 关联
+    public void Initialize(GameObject ui)
+    {
+        TextHp = ui.GetComponent<Text>();
+        var pos = Camera.main.WorldToScreenPoint(transform.position);
     }
 }
