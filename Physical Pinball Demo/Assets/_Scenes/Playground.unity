@@ -362,6 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbstaclePrefabs:
   - {fileID: 1305151564556710, guid: 6b8da0e6035c5594f97ae900428539fc, type: 2}
+  LowestY: -3.1
 --- !u!1 &391336966
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +534,21 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114219709479210920, guid: fa721fd8ee2f5ed46be1b0e97ce5132a,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.9811321
+      objectReference: {fileID: 0}
+    - target: {fileID: 114219709479210920, guid: fa721fd8ee2f5ed46be1b0e97ce5132a,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.9765041
+      objectReference: {fileID: 0}
+    - target: {fileID: 114219709479210920, guid: fa721fd8ee2f5ed46be1b0e97ce5132a,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.9765041
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa721fd8ee2f5ed46be1b0e97ce5132a, type: 2}
@@ -815,11 +831,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4260773462240010, guid: 6b8da0e6035c5594f97ae900428539fc, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 4260773462240010, guid: 6b8da0e6035c5594f97ae900428539fc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.31
+      value: -3.1
       objectReference: {fileID: 0}
     - target: {fileID: 4260773462240010, guid: 6b8da0e6035c5594f97ae900428539fc, type: 2}
       propertyPath: m_LocalPosition.z
@@ -852,7 +868,7 @@ Prefab:
       objectReference: {fileID: 446763739}
     - target: {fileID: 1305151564556710, guid: 6b8da0e6035c5594f97ae900428539fc, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b8da0e6035c5594f97ae900428539fc, type: 2}

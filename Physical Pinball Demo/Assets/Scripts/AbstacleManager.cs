@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AbstacleManager : MonoBehaviour {
     public GameObject[] AbstaclePrefabs;
-    public float LowestY = -0.31f;
+    public float LowestY = -3.1f;
 	// Use this for initialization
 	void Start () {
-    
+        AbstacleBuild();
     }
 
     // Update is called once per frame
