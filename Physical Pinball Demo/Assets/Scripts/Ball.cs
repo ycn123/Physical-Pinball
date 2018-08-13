@@ -29,11 +29,11 @@ public class Ball : MonoBehaviour {
     public void ReSetPos() {
         _rigidbody2D.velocity = Vector2.zero;
         _rigidbody2D.angularVelocity = 0;
-        transform.position = Resetpoint.position;  
-        GetComponent<Collider2D>().sharedMaterial= NoBounce;
+        transform.position = Resetpoint.position;
+        _collider2D.sharedMaterial= NoBounce;
     }
     public void BeforeShoot() {
-        GetComponent<Collider2D>().sharedMaterial = Bounce;
+        _collider2D.sharedMaterial = Bounce;
     }
 }
 

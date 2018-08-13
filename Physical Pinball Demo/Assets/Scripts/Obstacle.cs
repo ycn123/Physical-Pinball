@@ -23,5 +23,6 @@ public class Obstacle : MonoBehaviour {
     {
         TextHp = ui.GetComponent<Text>();
         var pos = Camera.main.WorldToScreenPoint(transform.position);
+        TextHp.transform.position = pos;
     }
 }

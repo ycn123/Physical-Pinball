@@ -357,11 +357,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 157812834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0b8a3a9e8baf9d48883fa8d915b4550, type: 3}
+  m_Script: {fileID: 11500000, guid: 907440300001dfc46bf640885b4e110c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbstaclePrefabs:
-  - {fileID: 1305151564556710, guid: 6b8da0e6035c5594f97ae900428539fc, type: 2}
+  ObstaclePrefabs: []
   TextPrefab: {fileID: 1812074487235226, guid: fa721fd8ee2f5ed46be1b0e97ce5132a, type: 2}
   CanvasParent: {fileID: 774814419}
   LowestY: -3.1
@@ -551,6 +550,10 @@ Prefab:
         type: 2}
       propertyPath: m_Color.b
       value: 0.9765041
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812074487235226, guid: fa721fd8ee2f5ed46be1b0e97ce5132a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa721fd8ee2f5ed46be1b0e97ce5132a, type: 2}
