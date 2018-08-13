@@ -1,39 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ObstacleManager : MonoBehaviour
-{
+public class ObstacleManager : MonoBehaviour {
     public GameObject[] ObstaclePrefabs;
+    public float LowestY = -3.1f;
     public GameObject TextPrefab;
     public Transform CanvasParent;
-    public float LowestY = -3.1f;
-    // Use this for initialization
+    public float[] HorizontalPos= { 0,0.95f,1.9f,-0.95f,-1.9f};
     void Start()
     {
         ObstacleBuild();
-        Debug.Log(transform.position);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
-    //建造最下面一行的障碍物
     public void ObstacleBuild()
     {
-        var index = Random.Range(0, ObstaclePrefabs.Length);
-        var prefab = ObstaclePrefabs[index];
-        var pf = Instantiate(prefab, transform);
-        pf.transform.position = new Vector2(0, LowestY);
-        var ui = TextBuild();
-        pf.GetComponent<Obstacle>().Initialize(ui);
+        foreach (var item in HorizontalPos) {
+            var random = Random.Range(0, 5);
+            if (random == 0) continue;
+            var index = Random.Range(0, ObstaclePrefabs.Length);
+            var prefab = ObstaclePrefabs[index];
+
+            var pf = Instantiate(prefab, transform);
+            pf.transform.position = new Vector2(item, LowestY);
+
+            var ui = TextBuild();
+            pf.GetComponent<Obstacle>().Initialize(ui);
+        }
+        
     }
     GameObject TextBuild()
     {
         var ui = Instantiate(TextPrefab, CanvasParent);
         return ui;
+       
     }
+    
 }
-

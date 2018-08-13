@@ -35,4 +35,8 @@ public class BallManager : MonoBehaviour {
             yield return new WaitForSeconds(ShootInterval);
         }
     }
+    public void CheckIfAllBallsReset()
+    {
+
+    }
 }

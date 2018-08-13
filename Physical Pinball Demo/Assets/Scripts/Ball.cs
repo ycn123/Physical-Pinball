@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour {
     public PhysicsMaterial2D NoBounce;
     public PhysicsMaterial2D Bounce;
     public Transform Resetpoint;
+    public bool isBouncing;
 
     // Use this for initialization
     void Start()
@@ -34,6 +35,7 @@ public class Ball : MonoBehaviour {
     }
     public void BeforeShoot() {
         _collider2D.sharedMaterial = Bounce;
+        isBouncing = true;
     }
 }
 
