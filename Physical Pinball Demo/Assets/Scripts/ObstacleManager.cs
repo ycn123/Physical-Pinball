@@ -8,9 +8,11 @@ public class ObstacleManager : MonoBehaviour {
     public float LowestY = -3.1f;
     public GameObject TextPrefab;
     public Transform CanvasParent;
-    public float[] HorizontalPos= { 0,0.95f,1.9f,-0.95f,-1.9f};
+    public float[] HorizontalPos = { 0, 0.95f, 1.9f, -0.95f, -1.9f };
+    public static ObstacleManager Instance;
     void Start()
     {
+        Instance = this;
         ObstacleBuild();
     }
 
@@ -29,13 +31,20 @@ public class ObstacleManager : MonoBehaviour {
             var ui = TextBuild();
             pf.GetComponent<Obstacle>().Initialize(ui);
         }
-        
+
     }
     GameObject TextBuild()
     {
         var ui = Instantiate(TextPrefab, CanvasParent);
         return ui;
-       
+
     }
-    
+    public void ObstaclesUp() {
+        foreach (Transform item in transform) {
+            item.position += new Vector3(0, 1f, 0);
+           var obstacle= item.GetComponent<Obstacle>();
+                if(obstacle != null) obstacle.UpdateUI();
+        }
+        ObstacleBuild();
+    }
 }

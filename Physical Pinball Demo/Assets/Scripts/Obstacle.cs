@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +23,11 @@ public class Obstacle : MonoBehaviour {
     public void Initialize(GameObject ui)
     {
         TextHp = ui.GetComponent<Text>();
+        UpdateUI();
+    }
+
+    internal void UpdateUI()
+    {
         var pos = Camera.main.WorldToScreenPoint(transform.position);
         TextHp.transform.position = pos;
     }

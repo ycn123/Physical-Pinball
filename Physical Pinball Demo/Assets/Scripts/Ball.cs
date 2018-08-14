@@ -32,6 +32,10 @@ public class Ball : MonoBehaviour {
         _rigidbody2D.angularVelocity = 0;
         transform.position = Resetpoint.position;
         _collider2D.sharedMaterial= NoBounce;
+
+        isBouncing = false;
+
+        transform.GetComponentInParent<BallManager>().OnBallsBack();
     }
     public void BeforeShoot() {
         _collider2D.sharedMaterial = Bounce;

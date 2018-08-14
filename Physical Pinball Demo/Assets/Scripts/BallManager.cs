@@ -35,8 +35,19 @@ public class BallManager : MonoBehaviour {
             yield return new WaitForSeconds(ShootInterval);
         }
     }
-    public void CheckIfAllBallsReset()
+    public bool CheckIfAllBallsReset()
     {
-
+        foreach (Transform child in transform) {
+            var ball = child.GetComponent<Ball>();
+            if (ball.isBouncing == true) return false;
+        }
+        return true;
+    }
+    public void OnBallsBack() {
+        var allballs = CheckIfAllBallsReset();
+        if (allballs == true) {
+            //通知障碍物升高一层
+            ObstacleManager.Instance.ObstaclesUp();
+        }
     }
 }
