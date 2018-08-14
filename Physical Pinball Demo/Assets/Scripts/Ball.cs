@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour {
     public PhysicsMaterial2D Bounce;
     public Transform Resetpoint;
     public bool isBouncing;
+    public int Damage=1;
 
     // Use this for initialization
     void Start()

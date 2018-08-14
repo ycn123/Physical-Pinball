@@ -20,7 +20,7 @@ public class ObstacleManager : MonoBehaviour {
     public void ObstacleBuild()
     {
         foreach (var item in HorizontalPos) {
-            var random = Random.Range(0, 5);
+            var random = Random.Range(0, 10);
             if (random == 0) continue;
             var index = Random.Range(0, ObstaclePrefabs.Length);
             var prefab = ObstaclePrefabs[index];
