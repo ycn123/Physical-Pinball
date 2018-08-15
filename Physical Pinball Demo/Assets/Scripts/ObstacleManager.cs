@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ObstacleManager : MonoBehaviour {
     public GameObject[] ObstaclePrefabs;
+    public GameObject pf;
+    public GameObject ui;
     public float LowestY = -3.1f;
     public GameObject TextPrefab;
     public Transform CanvasParent;
@@ -25,7 +27,7 @@ public class ObstacleManager : MonoBehaviour {
             var index = Random.Range(0, ObstaclePrefabs.Length);
             var prefab = ObstaclePrefabs[index];
 
-            var pf = Instantiate(prefab, transform);
+            pf = Instantiate(prefab, transform);
             pf.transform.position = new Vector2(item, LowestY);
 
             var ui = TextBuild();
@@ -35,9 +37,12 @@ public class ObstacleManager : MonoBehaviour {
     }
     GameObject TextBuild()
     {
-        var ui = Instantiate(TextPrefab, CanvasParent);
+        if (pf.GetComponent<Obstacle>() != null)
+        {
+           ui = Instantiate(TextPrefab, CanvasParent);
+            
+        }
         return ui;
-
     }
     public void ObstaclesUp() {
         foreach (Transform item in transform) {

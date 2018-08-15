@@ -17,7 +17,7 @@ public class Obstacle : MonoBehaviour {
         TextHp.text = Hp.ToString();
         if (Hp <= 0) {
             Destroy(gameObject);
-            Destroy(TextHp);
+            Destroy(TextHp.gameObject);
         }
     }
     //用于障碍物的初始化 关联
