@@ -14,6 +14,7 @@ public class Obstacle : MonoBehaviour {
         //Debug.Log(collision.collider.name);
         var ball = collision.gameObject.GetComponent<Ball>().Damage;
         Hp -= ball;
+        ScoreManager.Instace.AddScore(ball);
         TextHp.text = Hp.ToString();
         if (Hp <= 0) {
             Destroy(gameObject);

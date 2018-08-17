@@ -1,20 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
 
-    public int score;
+    public int Score;
+    public Text ScoreText;
 
-    public static ScoreManager intstace;
+    public static ScoreManager Instace;
     private void Awake()
     {
-        intstace = this;
+        Instace = this;
     }
-    public void AddScore(int score)
+    public void AddScore(int count)
     {
-        this.score += score;
-        UIManager.instace.Scoure.text = this.score.ToString();
-        print(score.ToString());
+       Score += count;
+       ScoreText.text = Score.ToString();
+
     }
 }

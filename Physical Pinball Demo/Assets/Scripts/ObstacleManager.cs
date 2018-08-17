@@ -46,9 +46,9 @@ public class ObstacleManager : MonoBehaviour {
     }
     public void ObstaclesUp() {
         foreach (Transform item in transform) {
-            item.position += new Vector3(0, 1f, 0);
+           item.position += new Vector3(0, 1f, 0);
            var obstacle= item.GetComponent<Obstacle>();
-                if(obstacle != null) obstacle.UpdateUI();
+           if(obstacle != null) obstacle.UpdateUI();
         }
         ObstacleBuild();
     }
