@@ -23,7 +23,7 @@ public class BallManager : MonoBehaviour {
     {
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 _direction = mousePos - ShootPoint.position;
-        
+        Debug.DrawRay(ShootPoint.position, _direction,Color.red,1);
 
         _direction.Normalize();
         for (int i = 0; i < transform.childCount; i++) {

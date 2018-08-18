@@ -9,6 +9,8 @@ public class Ball : MonoBehaviour {
     public PhysicsMaterial2D NoBounce;
     public PhysicsMaterial2D Bounce;
     public Transform Resetpoint;
+    public Transform Backpoint1;
+    public Transform Backpoint2;
     public bool isBouncing;
     public int Damage=1;
 
@@ -29,18 +31,30 @@ public class Ball : MonoBehaviour {
     
     }
     public void ReSetPos() {
+        var seq=LeanTween.sequence();
+        seq.append(LeanTween.move(gameObject,Backpoint1.position,0.2f));
+        seq.append(LeanTween.move(gameObject,Backpoint2.position, 1f));
+        seq.append(LeanTween.move(gameObject,Resetpoint.position, 0.1f));
+        seq.append(OnBackAnimationOver);
+        GetComponent<SpriteRenderer>().color = Color.gray;
+    }
+    void OnBackAnimationOver() {
         _rigidbody2D.velocity = Vector2.zero;
         _rigidbody2D.angularVelocity = 0;
         transform.position = Resetpoint.position;
-        _collider2D.sharedMaterial= NoBounce;
-
+        _collider2D.sharedMaterial = NoBounce;
+        gameObject.layer = 0;
         isBouncing = false;
-
+        GetComponent<SpriteRenderer>().color = Color.white;
         transform.GetComponentInParent<BallManager>().OnBallsBack();
+   
     }
     public void BeforeShoot() {
         _collider2D.sharedMaterial = Bounce;
         isBouncing = true;
+        gameObject.layer = 8;
+        _rigidbody2D.velocity = Vector2.zero;
+        _rigidbody2D.angularVelocity = 0;
     }
 }
 

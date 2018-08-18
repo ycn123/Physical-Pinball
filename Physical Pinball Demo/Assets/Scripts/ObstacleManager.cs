@@ -30,7 +30,8 @@ public class ObstacleManager : MonoBehaviour {
 
            var  pf = Instantiate(prefab, transform);
             pf.transform.position = new Vector2(item, LowestY);
-
+            pf.transform.eulerAngles = new Vector3(0, 0, Random.Range(0, 360));
+         
             var ui = TextBuild();
             pf.GetComponent<Obstacle>().Initialize(ui);
         }
@@ -59,6 +60,7 @@ public class ObstacleManager : MonoBehaviour {
     void OnGameOver() {
         //todo 处理游戏结束 
         Debug.Log("GameOver");
+        ScoreManager.Instace.GameOverRecord();
         SceneManager.LoadScene("Playground");
     }
 }

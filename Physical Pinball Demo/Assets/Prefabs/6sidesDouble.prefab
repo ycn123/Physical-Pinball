@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114543021006673374}
   - component: {fileID: 60829830973689598}
   m_Layer: 0
-  m_Name: 6sides
+  m_Name: 6sidesDouble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
