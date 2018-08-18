@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ObstacleManager : MonoBehaviour {
     public GameObject[] ObstaclePrefabs;
-    public GameObject pf;
-    public GameObject ui;
+ 
     public float LowestY = -3.1f;
+    public float HighestY = 3.1f;
     public GameObject TextPrefab;
     public Transform CanvasParent;
     public float[] HorizontalPos = { 0, 0.95f, 1.9f, -0.95f, -1.9f };
@@ -27,7 +28,7 @@ public class ObstacleManager : MonoBehaviour {
             var index = Random.Range(0, ObstaclePrefabs.Length);
             var prefab = ObstaclePrefabs[index];
 
-            pf = Instantiate(prefab, transform);
+           var  pf = Instantiate(prefab, transform);
             pf.transform.position = new Vector2(item, LowestY);
 
             var ui = TextBuild();
@@ -37,11 +38,9 @@ public class ObstacleManager : MonoBehaviour {
     }
     GameObject TextBuild()
     {
-        if (pf.GetComponent<Obstacle>() != null)
-        {
-           ui = Instantiate(TextPrefab, CanvasParent);
-            
-        }
+        
+        var ui = Instantiate(TextPrefab, CanvasParent);
+           
         return ui;
     }
     public void ObstaclesUp() {
@@ -49,7 +48,17 @@ public class ObstacleManager : MonoBehaviour {
            item.position += new Vector3(0, 1f, 0);
            var obstacle= item.GetComponent<Obstacle>();
            if(obstacle != null) obstacle.UpdateUI();
+
+            if (item.position.y >= HighestY)
+            {
+                OnGameOver();
+            }
         }
         ObstacleBuild();
+    }
+    void OnGameOver() {
+        //todo 处理游戏结束 
+        Debug.Log("GameOver");
+        SceneManager.LoadScene("Playground");
     }
 }
